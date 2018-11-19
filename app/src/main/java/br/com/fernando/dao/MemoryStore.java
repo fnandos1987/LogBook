@@ -15,7 +15,7 @@ public abstract class MemoryStore extends RoomDatabase {
 
     private static MemoryStore instance = null;
 
-    public abstract MemoryDao getTasksDao();
+    public abstract MemoryDao getMemoryDao();
 
     public static MemoryStore getInstance(Context context) {
         if (instance == null) {
