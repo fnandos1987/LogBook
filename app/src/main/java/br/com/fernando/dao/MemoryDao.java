@@ -11,7 +11,7 @@ import br.com.fernando.model.Memory;
 
 public interface MemoryDao {
 
-    @Query("SELECT * FROM memory")
+    @Query("SELECT * FROM memory order by creationDate desc")
     List<Memory> fetchMemorys();
 
     @Query("SELECT * FROM memory WHERE id = :id")
