@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class MemoryAdapter extends RecyclerView.Adapter<MemoryAdapter.ViewHolder
         holder.title.setText(memoryList.get(position).getTitle());
 
         holder.itemView.setOnClickListener(view -> listener.onClick(memory));
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMM yyyy, hh:mm");
+        holder.date.setText(simpleDateFormat.format(memory.getCreationDate()));
     }
 
     @Override

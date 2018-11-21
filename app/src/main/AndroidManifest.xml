@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MemoryDetailActivity"></activity>
+        <activity android:name=".MemoryDetailActivity" />
+        <activity android:name=".MemoryNewActivity"></activity>
     </application>
 
 </manifest>

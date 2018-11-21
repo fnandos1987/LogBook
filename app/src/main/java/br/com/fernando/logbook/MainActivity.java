@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         taskList.setAdapter(adapter);
 
         FloatingActionButton buttonCreate = findViewById(R.id.fab_new_memory);
-//        buttonCreate.setOnClickListener(v -> startActivity(
-//                new Intent(getApplicationContext(), NewTaskActivity.class)));
+        buttonCreate.setOnClickListener(v -> startActivity(
+                new Intent(getApplicationContext(), MemoryNewActivity.class)));
     }
 
     @Override

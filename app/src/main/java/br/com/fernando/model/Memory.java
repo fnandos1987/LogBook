@@ -1,6 +1,7 @@
 package br.com.fernando.model;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
@@ -14,6 +15,15 @@ public class Memory {
     private final String description;
     private final String photo;
     private final Date creationDate;
+
+    @Ignore
+    public Memory(String title, String description, String photo) {
+        this.id = null;
+        this.title = title;
+        this.description = description;
+        this.photo = photo;
+        this.creationDate = new Date();
+    }
 
     public Memory(Integer id, String title, String description, String photo, Date creationDate) {
         this.id = id;
