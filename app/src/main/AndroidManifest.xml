@@ -18,6 +18,17 @@
         </activity>
         <activity android:name=".MemoryDetailActivity" />
         <activity android:name=".MemoryNewActivity"></activity>
+
+        <provider
+            android:authorities="${applicationId}"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider" />
+        </provider>
     </application>
 
 </manifest>
