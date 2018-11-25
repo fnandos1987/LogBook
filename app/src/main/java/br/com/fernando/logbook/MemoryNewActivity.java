@@ -60,7 +60,6 @@ public class MemoryNewActivity extends AppCompatActivity {
             Uri outputDir = FileProvider.getUriForFile(
                     MemoryNewActivity.this, BuildConfig.APPLICATION_ID, file);
 
-
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, outputDir);
 
