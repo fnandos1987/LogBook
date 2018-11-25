@@ -17,9 +17,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import java.io.File;
+import java.util.UUID;
 
 import br.com.fernando.dao.MemoryViewModel;
 import br.com.fernando.model.Memory;
+import br.com.fernando.utils.PhotoUtils;
 
 public class MemoryNewActivity extends AppCompatActivity {
 
@@ -50,8 +52,11 @@ public class MemoryNewActivity extends AppCompatActivity {
         });
 
         imageView.setOnClickListener(v -> {
+            UUID uuid = UUID.randomUUID();
+            String strUuid = uuid.toString();
+
             file = new File(
-                    getExternalFilesDir(Environment.DIRECTORY_PICTURES), "photo.jpg");
+                    getExternalFilesDir(Environment.DIRECTORY_PICTURES), strUuid+".jpg");
             Uri outputDir = FileProvider.getUriForFile(
                     MemoryNewActivity.this, BuildConfig.APPLICATION_ID, file);
 
@@ -95,21 +100,7 @@ public class MemoryNewActivity extends AppCompatActivity {
                 int width = imageView.getWidth();
                 int height = imageView.getHeight();
 
-                BitmapFactory.Options facOptions = new BitmapFactory.Options();
-                facOptions.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(file.getPath(), facOptions);
-
-                int imageWidth = facOptions.outWidth;
-                int imageHeight = facOptions.outHeight;
-
-                // Verificar o quanto precisamos scalar a imagem
-                int scaleFactor = Math.min(imageWidth / width, imageHeight / height);
-
-                facOptions.inJustDecodeBounds = false;
-                facOptions.inSampleSize = scaleFactor;
-
-                Bitmap image = BitmapFactory.decodeFile(file.getPath(), facOptions);
-                imageView.setImageBitmap(image);
+                imageView.setImageBitmap(PhotoUtils.loadPhoto(file.getPath(), width, height));
                 imgSrc.setText(file.getPath());
             }
         }

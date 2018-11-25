@@ -24,7 +24,7 @@ public class MemoryViewModel extends AndroidViewModel {
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... voids) {
-                memorys.postValue(MemoryStore.getInstance(getApplication())
+                memorys.postValue(LogBookStore.getInstance(getApplication())
                         .getMemoryDao()
                         .fetchMemorys());
                 return null;
@@ -36,7 +36,7 @@ public class MemoryViewModel extends AndroidViewModel {
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... voids) {
-                Memory Memory = MemoryStore.getInstance(getApplication())
+                Memory Memory = LogBookStore.getInstance(getApplication())
                         .getMemoryDao()
                         .findById(id);
                 memoryLiveData.postValue(Memory);
@@ -49,7 +49,7 @@ public class MemoryViewModel extends AndroidViewModel {
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... voids) {
-                MemoryStore.getInstance(getApplication())
+                LogBookStore.getInstance(getApplication())
                         .getMemoryDao()
                         .insert(Memory);
                 sucess.postValue(true);
@@ -62,7 +62,7 @@ public class MemoryViewModel extends AndroidViewModel {
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... voids) {
-                MemoryStore.getInstance(getApplication())
+                LogBookStore.getInstance(getApplication())
                         .getMemoryDao()
                         .update(new Memory(Memory.getId(), Memory.getTitle(), Memory.getDescription(), Memory.getPhoto(), Memory.getCreationDate()));
                 sucess.postValue(true);
@@ -75,7 +75,7 @@ public class MemoryViewModel extends AndroidViewModel {
         new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... voids) {
-                MemoryStore.getInstance(getApplication())
+                LogBookStore.getInstance(getApplication())
                         .getMemoryDao()
                         .delete(Memory);
                 sucess.postValue(true);

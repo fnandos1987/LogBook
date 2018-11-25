@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.fernando.logbook">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MemoryDetailActivity" />
-        <activity android:name=".MemoryNewActivity"></activity>
+        <activity android:name=".MemoryNewActivity" android:parentActivityName=".MainActivity" />
 
         <provider
             android:authorities="${applicationId}"
