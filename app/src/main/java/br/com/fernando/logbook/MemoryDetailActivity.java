@@ -1,6 +1,8 @@
 package br.com.fernando.logbook;
 
+import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.content.FileProvider;
@@ -61,12 +63,20 @@ public class MemoryDetailActivity extends AppCompatActivity {
 
         Button buttonDelete = findViewById(R.id.button_delete);
         buttonDelete.setOnClickListener(view -> {
-            memoryViewModel.delete(this.memory);
+            showDeleteDialog(this.memory);
         });
 
         Button buttonDone = findViewById(R.id.button_done);
         buttonDone.setOnClickListener(view -> {
             memoryViewModel.update(this.memory);
         });
+    }
+
+    private void showDeleteDialog(Memory memory) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.dialog_delete_memory)
+                .setPositiveButton(R.string.btn_ok, (dialog, id) -> memoryViewModel.delete(memory))
+                .setNegativeButton(R.string.btn_cancel, (dialog, id) -> dialog.dismiss())
+                .show();
     }
 }

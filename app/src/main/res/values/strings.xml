@@ -6,4 +6,6 @@
     <string name="hint_title">Título da memória</string>
     <string name="hint_description">Descrição da Memória</string>
     <string name="btn_cancel">Cancelar</string>
+    <string name="btn_ok">OK</string>
+    <string name="dialog_delete_memory">Deseja excluir essa memória?</string>
 </resources>
