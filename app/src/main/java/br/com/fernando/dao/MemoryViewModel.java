@@ -58,19 +58,6 @@ public class MemoryViewModel extends AndroidViewModel {
         }.execute();
     }
 
-    public void update(final Memory Memory) {
-        new AsyncTask<Void, Void, Void>(){
-            @Override
-            protected Void doInBackground(Void... voids) {
-                LogBookStore.getInstance(getApplication())
-                        .getMemoryDao()
-                        .update(new Memory(Memory.getId(), Memory.getTitle(), Memory.getDescription(), Memory.getPhoto(), Memory.getCreationDate()));
-                sucess.postValue(true);
-                return null;
-            }
-        }.execute();
-    }
-
     public void delete(final Memory Memory) {
         new AsyncTask<Void, Void, Void>(){
             @Override

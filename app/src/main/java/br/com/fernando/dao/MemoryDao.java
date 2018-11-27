@@ -22,9 +22,6 @@ public interface MemoryDao {
     @Insert
     void insert(Memory memory);
 
-    @Update
-    void update(Memory memory);
-
     @Delete
     void delete(Memory memory);
 
