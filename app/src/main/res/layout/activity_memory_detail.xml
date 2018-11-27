@@ -16,7 +16,9 @@
         android:overScrollMode="always"
         android:scrollbarStyle="insideInset"
         android:scrollbars="vertical"
-        android:hint="@string/hint_description" />
+        android:hint="@string/hint_description"
+        android:enabled="false"
+        android:focusable="false"/>
 
     <ImageView
         android:id="@+id/img_memory"
